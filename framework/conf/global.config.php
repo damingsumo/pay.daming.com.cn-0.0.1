@@ -65,25 +65,16 @@ define ( 'VENUE_TYPE_PREFIX_TABLEGAMES', 115 );
 
 
 //微信token
-define('WEIXIN_TOKEN', 'lesaitiyu'); 
+define('WEIXIN_TOKEN', 'daming1211');
 //微信APPID
-define('WEIXIN_APPID', 'wx1615c2b4b32356e0'); 
+define('WEIXIN_APPID', 'wxc0d2ac8ba7d7c5a4');
 //微信AppSecret
-define('WEIXIN_APPSECRET', '5f1499284ab2f6eff62bb570fdb86f60'); 
+define('WEIXIN_APPSECRET', '61158372ce46fdb8d27845cc534c9987');
 //微信加密随机串
-define('WEIXIN_SIGN_STR', 'fivqbk4kUvaebUgl2vwABzark6ZSFkWTSAsojRXRqnK');
+define('WEIXIN_SIGN_STR', 'wtSGPZETyA6WgKjCYt3cxiMbJrMFHvXCkKq5L5xrs8v');
 
+define('WEIXIN_SIGN_STR', 'wtSGPZETyA6WgKjCYt3cxiMbJrMFHvXCkKq5L5xrs8v');
 
-//资源API域名
-define('RES_DOMIAN', 'api.res.ztit.com.cn');
-//会员API域名
-define('CARD_DOMIAN', 'api.card.ztit.com.cn');
-//订单API域名
-define('ORDER_DOMIAN', 'api.order.ztit.com.cn');
-//账户API域名
-define('ACCOUNT_DOMIAN', 'api.account.ztit.com.cn');
-//俱乐部API域名
-define('MATCH_DOMIAN', 'api.match.ztit.com.cn');
 
 /********************变量start*************************/
 //系统配置数组加载
