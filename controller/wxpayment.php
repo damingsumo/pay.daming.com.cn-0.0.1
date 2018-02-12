@@ -9,7 +9,7 @@ class Controller_Wxpayment extends Controller_Base {
 	
 	
 	public function orderPay() {
-	    print_r();exit;
+	    print_r(md5('daming1211'));exit;
 	    $oid = isset($_REQUEST['oid']) ? $_REQUEST['oid'] : 0;
 	    if($oid <= 0) {
 	        return $this->error('订单ID错误');
@@ -21,7 +21,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    }
 	    $paymentAccount['wx_appid'] = WEIXIN_APPID;
 	    $paymentAccount['mchid'] = '1498010952';
-	    $paymentAccount['mch_key'] = WEIXIN_APPID;
+	    $paymentAccount['mch_key'] = 'daming1211';
 	    
 	    require_once(FW_PATH."/plugins/wxpay/WxPayPubHelper.php");
 	    //=========步骤：使用统一支付接口，获取prepay_id============
