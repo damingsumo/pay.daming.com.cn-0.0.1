@@ -19,7 +19,6 @@ class Controller_Wxpayment extends Controller_Base {
 	    if($order['status'] != 1 || $order['pay_money'] <= 0) {
 	        return $this->error('该订单不允许支付');
 	    }
-	    print_r(1);exit;
 	    $paymentAccount['wx_appid'] = WEIXIN_APPID;
 	    $paymentAccount['mchid'] = '1498010952';
 	    $paymentAccount['mch_key'] = 'daming1211';
