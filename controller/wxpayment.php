@@ -46,7 +46,6 @@ class Controller_Wxpayment extends Controller_Base {
 	    //$unifiedOrder->setParameter("goods_tag","ORDER");//商品标记
 	    //$unifiedOrder->setParameter("openid","XXXX");//用户标识
 	    //$unifiedOrder->setParameter("product_id","XXXX");//商品ID
-	    print_r(1);exit;
 	    $payData = $unifiedOrder->createXml($paymentAccount['wx_appid'], $paymentAccount['mchid'], $paymentAccount['mch_key']);
 	     
 	    $data = array();
