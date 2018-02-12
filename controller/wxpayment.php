@@ -64,7 +64,7 @@ class Controller_Wxpayment extends Controller_Base {
         $jsApi->setPrepayId($prepay_id);
         
         $enviroment = isset($_SERVER['RUNTIME_ENVIROMENT']) ? $_SERVER['RUNTIME_ENVIROMENT'] : '';
-        $wxUrl = $enviroment == 'online' ? WX_ONLINE_URL : WX_TEST_URL;
+        $wxUrl = $enviroment == 'test' ? WX_ONLINE_URL : WX_TEST_URL;
         
         $data = array();
         $data['wxpay_data'] = $jsApi->getParameters($paymentAccount['wx_appid'], $paymentAccount['mch_key']);
