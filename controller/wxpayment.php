@@ -15,6 +15,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    }
 	    
 	    $order = WebApi_Order::instance()->row('*',$oid);
+	    print_r($order);exit;
 	    if($order['status'] != 1 || $order['pay_money'] <= 0) {
 	        return $this->error('该订单不允许支付');
 	    }
