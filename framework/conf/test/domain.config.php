@@ -7,4 +7,4 @@
 //主域名
 define('DOMAIN', 'bestdaming.cn');
 //访问地址
-define('HOME_URL', 'http://pay.'.DOMAIN.'/');
+define('HOME_URL', 'http://test.pay.'.DOMAIN.'/');
