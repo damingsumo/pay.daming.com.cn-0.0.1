@@ -20,10 +20,7 @@ define('FILE_SERVER', 'pic.bestdo.com');
 /********************变量start*************************/
 //数据库配置
 $dbServerArray = array(
-    'yd_res' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_yd_res|test_iyd|Changdong123',
-    'yd_base' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_yd_base|test_iyd|Changdong123',
-    'yd_payment' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_payment|test_iyd|Changdong123',
-    'yd_match' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_match|test_iyd|Changdong123',
+    'yd_res' => 'mysql:host=116.62.113.142;port=3306;dbname=test_dress|root|ldyu123',
 );
 
 //redis配置
