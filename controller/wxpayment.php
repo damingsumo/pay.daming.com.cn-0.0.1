@@ -9,7 +9,7 @@ class Controller_Wxpayment extends Controller_Base {
 	
 	
 	public function orderPay() {
-	    $oid = isset($_REQUEST['oid']) ? $_REQUEST['oid'] : 0;
+	    $oid = isset($_REQUEST['oid']) ? $_REQUEST['oid'] : 10;
 	    $openid = isset($_REQUEST['open_id']) ? $_REQUEST['open_id'] : 'o9A6d0i0howwE7XB1A8i6tOWE0fQ';
 	    if($oid <= 0) {
 	        return $this->error('订单ID错误');
@@ -19,6 +19,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    if($order['status'] != 1 || $order['pay_money'] <= 0) {
 	        return $this->error('该订单不允许支付');
 	    }
+	    print_r(1);exit;
 	    $paymentAccount['wx_appid'] = WEIXIN_APPID;
 	    $paymentAccount['mchid'] = '1498010952';
 	    $paymentAccount['mch_key'] = 'daming1211';
@@ -34,7 +35,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    //noncestr已填,商户无需重复填写
 	    //spbill_create_ip已填,商户无需重复填写
 	    //sign已填,商户无需重复填写
-	    
+	    print_r(1);exit;
 	    $unifiedOrder->setParameter("openid", "$openid");//商品描述
 	    $unifiedOrder->setParameter("body", $order['brand_name']);//商品描述
 	    $unifiedOrder->setParameter("out_trade_no",date("YmdHis",time()).'ox'.$oid.'x'.$paymentAccount['mchid']);//商户订单号
@@ -60,6 +61,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    //$unifiedOrder->setParameter("openid","XXXX");//用户标识
 	    //$unifiedOrder->setParameter("product_id","XXXX");//商品ID
 	     $prepay_id = $unifiedOrder->getPrepayId($paymentAccount['wx_appid'], $paymentAccount['mchid'], $paymentAccount['mch_key']);
+	     print_r(1);exit;
         //=========步骤2：使用jsapi调起支付============
         $jsApi->setPrepayId($prepay_id);
         
