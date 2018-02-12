@@ -32,7 +32,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    //noncestr已填,商户无需重复填写
 	    //spbill_create_ip已填,商户无需重复填写
 	    //sign已填,商户无需重复填写
-	    $unifiedOrder->setParameter("body", $order['venue_name']);//商品描述
+	    $unifiedOrder->setParameter("body", $order['brand_name']);//商品描述
 	    $unifiedOrder->setParameter("out_trade_no",date("YmdHis",time()).'ox'.$oid.'x'.$paymentAccount['mchid']);//商户订单号
 	    $unifiedOrder->setParameter("total_fee", $order['pay_money']);//总金额
 	    $unifiedOrder->setParameter("notify_url",HOME_URL.$this->WX_NOTIFY_URL);//通知地址
