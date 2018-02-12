@@ -140,7 +140,6 @@ class Common_util_pub
 	{		
         //将XML转为array        
         $array_data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
-        print_r($array_data);exit;
 		return $array_data;
 	}
 
