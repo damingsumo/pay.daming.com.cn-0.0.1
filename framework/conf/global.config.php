@@ -37,9 +37,9 @@ define ( 'CERT_PATH', '/var/www/mgr.pay.changdong.cn/mgr.pay.changdong.cn-1.0.0'
 define ( 'TEST_CERT_PATH', '/home/changdong/mgr.pay.changdong.cn/mgr.pay.changdong.cn-1.0.0' );
 
 //微信域名
-define ( 'WX_URL', 'cd.wx.ztit.com.cn' );
+define ( 'WX_URL', 'test.mobile.bestdaming.cn' );
 //微信正式域名
-define ( 'WX_ONLINE_URL', 'http://cd.wx.ztit.com.cn' );
+define ( 'WX_ONLINE_URL', 'http://test.mobile.bestdaming.cn' );
 //微信测试域名
 define ( 'WX_TEST_URL', 'http://test.cd.wx.ztit.com.cn' );
 define ( 'WX_MATCH_URL', 'http://test.weixin.match.ztit.com.cn' );
