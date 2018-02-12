@@ -139,7 +139,8 @@ class Common_util_pub
 	public function xmlToArray($xml)
 	{		
         //将XML转为array        
-        $array_data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);		
+        $array_data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        print_r($array_data);exit;
 		return $array_data;
 	}
 
@@ -359,7 +360,6 @@ class UnifiedOrder_pub extends Wxpay_client_pub
 	{
 		$this->postXml($appid, $mchid, $key);
 		$this->result = $this->xmlToArray($this->response);
-		print_r($this->result );exit;
 		$prepay_id = $this->result["prepay_id"];
 		return $prepay_id;
 	}
