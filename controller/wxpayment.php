@@ -34,7 +34,6 @@ class Controller_Wxpayment extends Controller_Base {
 	    //noncestr已填,商户无需重复填写
 	    //spbill_create_ip已填,商户无需重复填写
 	    //sign已填,商户无需重复填写
-	    print_r(1);exit;
 	    $unifiedOrder->setParameter("openid", "$openid");//商品描述
 	    $unifiedOrder->setParameter("body", $order['brand_name']);//商品描述
 	    $unifiedOrder->setParameter("out_trade_no",date("YmdHis",time()).'ox'.$oid.'x'.$paymentAccount['mchid']);//商户订单号
