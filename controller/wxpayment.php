@@ -64,7 +64,7 @@ class Controller_Wxpayment extends Controller_Base {
         
         $enviroment = isset($_SERVER['RUNTIME_ENVIROMENT']) ? $_SERVER['RUNTIME_ENVIROMENT'] : '';
         $wxUrl = $enviroment == 'test' ? WX_ONLINE_URL : WX_TEST_URL;
-        
+        print_r($wxUrl);exit;
         $data = array();
         $data['wxpay_data'] = $jsApi->getParameters($paymentAccount['wx_appid'], $paymentAccount['mch_key']);
         $data['order'] = $order;
