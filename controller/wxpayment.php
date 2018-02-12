@@ -10,6 +10,7 @@ class Controller_Wxpayment extends Controller_Base {
 	
 	public function orderPay() {
 	    $oid = isset($_REQUEST['oid']) ? $_REQUEST['oid'] : 0;
+	    $openid = isset($_REQUEST['open_id']) ? $_REQUEST['open_id'] : 'o9A6d0i0howwE7XB1A8i6tOWE0fQ';
 	    if($oid <= 0) {
 	        return $this->error('订单ID错误');
 	    }
@@ -22,6 +23,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    $paymentAccount['mchid'] = '1498010952';
 	    $paymentAccount['mch_key'] = 'daming1211';
 	    require_once(FW_PATH."/plugins/wxpay/WxPayPubHelper.php");
+	    $jsApi = new JsApi_pub();
 	    //=========步骤：使用统一支付接口，获取prepay_id============
 	    //使用统一支付接口
 	    $unifiedOrder = new UnifiedOrder_pub();
@@ -32,27 +34,45 @@ class Controller_Wxpayment extends Controller_Base {
 	    //noncestr已填,商户无需重复填写
 	    //spbill_create_ip已填,商户无需重复填写
 	    //sign已填,商户无需重复填写
+	    
+	    $unifiedOrder->setParameter("openid", "$openid");//商品描述
 	    $unifiedOrder->setParameter("body", $order['brand_name']);//商品描述
 	    $unifiedOrder->setParameter("out_trade_no",date("YmdHis",time()).'ox'.$oid.'x'.$paymentAccount['mchid']);//商户订单号
 	    $unifiedOrder->setParameter("total_fee", $order['pay_money']);//总金额
 	    $unifiedOrder->setParameter("notify_url",HOME_URL.$this->WX_NOTIFY_URL);//通知地址
-	    $unifiedOrder->setParameter("trade_type","APP");//交易类型
-	    //非必填参数，商户可根据实际情况选填
-	    //$unifiedOrder->setParameter("sub_mch_id","XXXX");//子商户号
-	    //$unifiedOrder->setParameter("device_info","XXXX");//设备号
+	    $unifiedOrder->setParameter("trade_type","JSAPI");//交易类型
+	    
+	    
+	    
+	    
+// 	    $unifiedOrder->setParameter("body", $order['brand_name']);//商品描述
+// 	    $unifiedOrder->setParameter("out_trade_no",date("YmdHis",time()).'ox'.$oid.'x'.$paymentAccount['mchid']);//商户订单号
+// 	    $unifiedOrder->setParameter("total_fee", $order['pay_money']);//总金额
+// 	    $unifiedOrder->setParameter("notify_url",HOME_URL.$this->WX_NOTIFY_URL);//通知地址
+// 	    $unifiedOrder->setParameter("trade_type","APP");//交易类型
+// 	    //非必填参数，商户可根据实际情况选填
+// 	    //$unifiedOrder->setParameter("sub_mch_id","XXXX");//子商户号
+// 	    //$unifiedOrder->setParameter("device_info","XXXX");//设备号
 	    //$unifiedOrder->setParameter("attach","XXXX");//附加数据
 	    //$unifiedOrder->setParameter("time_start","XXXX");//交易起始时间
 	    //$unifiedOrder->setParameter("time_expire","XXXX");//交易结束时间
 	    //$unifiedOrder->setParameter("goods_tag","ORDER");//商品标记
 	    //$unifiedOrder->setParameter("openid","XXXX");//用户标识
 	    //$unifiedOrder->setParameter("product_id","XXXX");//商品ID
-	    $payData = $unifiedOrder->createXml($paymentAccount['wx_appid'], $paymentAccount['mchid'], $paymentAccount['mch_key']);
-	     
-	    $data = array();
-	    $data['order'] = $order;
-	    $data['pay_data'] = $payData;
-	    $data['expire_time'] = strtotime($order['create_time']) + 900 - time();
-	    return $this->output($data);
+	     $prepay_id = $unifiedOrder->getPrepayId($paymentAccount['wx_appid'], $paymentAccount['mchid'], $paymentAccount['mch_key']);
+        //=========步骤2：使用jsapi调起支付============
+        $jsApi->setPrepayId($prepay_id);
+        
+        $enviroment = isset($_SERVER['RUNTIME_ENVIROMENT']) ? $_SERVER['RUNTIME_ENVIROMENT'] : '';
+        $wxUrl = $enviroment == 'online' ? WX_ONLINE_URL : WX_TEST_URL;
+        
+        $data = array();
+        $data['wxpay_data'] = $jsApi->getParameters($paymentAccount['wx_appid'], $paymentAccount['mch_key']);
+        $data['order'] = $order;
+        $data['expire_time'] = strtotime($order['create_time']) + 900 - time();
+        $data['wx_url'] = $wxUrl;
+//         $data['paymentAccountAli'] = $paymentAccountAli;
+        return $this->display('wxpayment/topay', $data);
 	    
 	    
 	}
