@@ -61,7 +61,6 @@ class Controller_Wxpayment extends Controller_Base {
 	     $prepay_id = $unifiedOrder->getPrepayId($paymentAccount['wx_appid'], $paymentAccount['mchid'], $paymentAccount['mch_key']);
         //=========步骤2：使用jsapi调起支付============
         $jsApi->setPrepayId($prepay_id);
-        print_r($prepay_id);exit;
         $enviroment = isset($_SERVER['RUNTIME_ENVIROMENT']) ? $_SERVER['RUNTIME_ENVIROMENT'] : '';
         $wxUrl = $enviroment == 'test' ? WX_ONLINE_URL : WX_TEST_URL;
         print_r($wxUrl);exit;
