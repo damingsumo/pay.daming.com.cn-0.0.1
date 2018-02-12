@@ -21,7 +21,7 @@ class Controller_Wxpayment extends Controller_Base {
 	    }
 	    $paymentAccount['wx_appid'] = WEIXIN_APPID;
 	    $paymentAccount['mchid'] = '1498010952';
-	    $paymentAccount['mch_key'] = 'daming1211';
+	    $paymentAccount['mch_key'] = 'b9022c0ecd68fd90483c7f629d05c2ce';
 	    require_once(FW_PATH."/plugins/wxpay/WxPayPubHelper.php");
 	    $jsApi = new JsApi_pub();
 	    //=========步骤：使用统一支付接口，获取prepay_id============
