@@ -4,7 +4,7 @@
 	<ul class="ui-item">
 		<li class="ui-boxhor ui-font15 ui-cont">
 			<div class="ui-flex ui-item-left">
-				{$order.venue_name}费用
+				{$order.brand_name}费用
 			</div>
 			<div class="ui-item-right ui-red">￥{$order.pay_money/100}</div>
 		</li>
