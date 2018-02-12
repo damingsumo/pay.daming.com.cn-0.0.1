@@ -69,7 +69,7 @@ class Controller_Wxpayment extends Controller_Base {
         $data['expire_time'] = strtotime($order['create_time']) + 900 - time();
         $data['wx_url'] = $wxUrl;
 //         $data['paymentAccountAli'] = $paymentAccountAli;
-        return $this->display('wxpayment/topay', $data);
+        return $this->display('wxpayment/orderpay', $data);
 	    
 	    
 	}
