@@ -65,6 +65,7 @@ class Controller_Wxpayment extends Controller_Base {
         $wxUrl = $enviroment == 'test' ? WX_ONLINE_URL : WX_TEST_URL;
         $data = array();
         $data['wxpay_data'] = $jsApi->getParameters($paymentAccount['wx_appid'], $paymentAccount['mch_key']);
+        print_r($data);exit;
         $data['order'] = $order;
         $data['expire_time'] = strtotime($order['create_time']) + 900 - time();
         $data['wx_url'] = $wxUrl;
