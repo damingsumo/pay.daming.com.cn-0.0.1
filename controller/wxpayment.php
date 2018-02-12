@@ -15,14 +15,12 @@ class Controller_Wxpayment extends Controller_Base {
 	    }
 	    
 	    $order = WebApi_Order::instance()->row('*',$oid);
-	    print_r($order);exit;
 	    if($order['status'] != 1 || $order['pay_money'] <= 0) {
 	        return $this->error('该订单不允许支付');
 	    }
 	    $paymentAccount['wx_appid'] = WEIXIN_APPID;
 	    $paymentAccount['mchid'] = '1498010952';
 	    $paymentAccount['mch_key'] = 'daming1211';
-	    print_r(1);exit;
 	    require_once(FW_PATH."/plugins/wxpay/WxPayPubHelper.php");
 	    //=========步骤：使用统一支付接口，获取prepay_id============
 	    //使用统一支付接口
