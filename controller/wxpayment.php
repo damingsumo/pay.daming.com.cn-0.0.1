@@ -9,6 +9,7 @@ class Controller_Wxpayment extends Controller_Base {
 	
 	
 	public function orderPay() {
+	    print_r();exit;
 	    $oid = isset($_REQUEST['oid']) ? $_REQUEST['oid'] : 0;
 	    if($oid <= 0) {
 	        return $this->error('订单ID错误');

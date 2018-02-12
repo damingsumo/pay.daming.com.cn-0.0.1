@@ -5,6 +5,6 @@
  */
 
 //主域名
-define('DOMAIN', 'ztit.com.cn');
+define('DOMAIN', 'bestdaming.cn');
 //访问地址
-define('HOME_URL', 'http://test.api.pay.'.DOMAIN.'/');
+define('HOME_URL', 'http://pay.'.DOMAIN.'/');
