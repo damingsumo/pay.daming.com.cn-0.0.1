@@ -59,7 +59,6 @@ class Controller_Wxpayment extends Controller_Base {
 	    //$unifiedOrder->setParameter("openid","XXXX");//用户标识
 	    //$unifiedOrder->setParameter("product_id","XXXX");//商品ID
 	     $prepay_id = $unifiedOrder->getPrepayId($paymentAccount['wx_appid'], $paymentAccount['mchid'], $paymentAccount['mch_key']);
-	     print_r($prepay_id);exit;
         //=========步骤2：使用jsapi调起支付============
         $jsApi->setPrepayId($prepay_id);
         
