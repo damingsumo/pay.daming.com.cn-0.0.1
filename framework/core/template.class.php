@@ -91,6 +91,7 @@ class template {
 		foreach ( $parameters as $varname => $value ) {
 			$this->engine->assign ( $varname, $value );
 		}
+		print_r(1);exit;
 		$this->engine->display ( $template );
 	}
 	

@@ -74,7 +74,6 @@ class Controller {
 		if (! strpos ( $template, '/' )) {
 			$template = str_replace ( '_', '/', ltrim ( strtolower ( get_class ( $this ) ), 'controller_' ) ) . '/' . $template;
 		}
-		print_r(1);exit;
 		Response::instance ()->display ( $template, $parameters );
 	}
 	
