@@ -8,6 +8,14 @@ class Controller_Wxpayment extends Controller_Base {
 	public $WX_NOTIFY_URL = 'wx/notify/receiptNotification';
 	
 	
+	public function testpay() {
+	    return $this->display('wxpayment/orderpay', $data);
+	}
+	
+	
+	
+	
+	
 	public function orderPay() {
 	    $oid = isset($_REQUEST['oid']) ? $_REQUEST['oid'] : 10;
 	    $openid = isset($_REQUEST['open_id']) ? $_REQUEST['open_id'] : 'o9A6d0i0howwE7XB1A8i6tOWE0fQ';
